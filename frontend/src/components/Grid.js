@@ -1,17 +1,15 @@
-import ColumnGrid from "./ColumnGrid";
-
-const DataGrid = ({ grid }) => {
+const DataGrid = ({ grid, gridHeaders, onHeaderClick }) => {
   return (
     <div className="grid-wrapper">
       <table>
         <thead>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Role</th>
-          <th>Date</th>
-          <th>ID</th>
+          {gridHeaders &&
+            gridHeaders.map((header) => (
+              <th onClick={() => onHeaderClick(header.id)} key={header.id}>
+                {header.text}
+              </th>
+            ))}
         </thead>
-
         <tbody>
           {grid &&
             grid.map((grid) => (
@@ -20,7 +18,6 @@ const DataGrid = ({ grid }) => {
                 <td>{grid.email}</td>
                 <td>{grid.role}</td>
                 <td>{grid.date}</td>
-                <td>{grid.id}</td>
               </tr>
             ))}
         </tbody>
