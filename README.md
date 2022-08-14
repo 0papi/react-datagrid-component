@@ -12,3 +12,11 @@
 2. run the app with the command `npm run dev`
 
 #NB: App uses nodemon to run the server continuously therefore make sure to install nodemon globally if u don't have it
+
+
+
+# REQUIREMENTS IMPLEMENTED
+- Handles 100, 000s of rows.
+- Generic, reusable API that abstracts away the underlying implementation.
+- Light backend that serves up the data
+- Allow sorting by clicking on columns
