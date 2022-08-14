@@ -18,12 +18,16 @@ const colHeaders = [
     id: 4,
     text: "Date",
   },
+  {
+    id: 5,
+    text: "Action",
+  },
 ];
 
 function App() {
   const [gridData, setGridData] = useState([]);
   const [isSort, setIsSort] = useState(false);
-
+  const [isEditId, setIsEditId] = useState(null);
   useEffect(() => {
     // fetch data function
     const getGridData = async () => {
@@ -46,6 +50,10 @@ function App() {
     setIsSort((prevSort) => !prevSort);
   };
 
+  const onEditRow = (id) => {
+    setIsEditId(id);
+  };
+
   return (
     <div className="container">
       <h2 className="header_msg">React Datagrid Component</h2>
@@ -53,6 +61,7 @@ function App() {
         grid={gridData}
         gridHeaders={colHeaders}
         onHeaderClick={onColHeaderClick}
+        onEditRowId={isEditId}
       />
     </div>
   );
